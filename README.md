@@ -44,7 +44,7 @@ Pin the `Workspace` command in Vicinae if you want the fastest loop.
 Install and start [Vicinae](https://docs.vicinae.com/), then:
 
 ```bash
-git clone https://github.com/TiageMiguel/workspace-vicinae.git
+git clone https://github.com/tiagem/workspace-vicinae.git
 cd workspace-vicinae
 npm install
 npm run build
