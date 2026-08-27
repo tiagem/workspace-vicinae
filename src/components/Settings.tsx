@@ -30,10 +30,8 @@ export default function Settings({ onWorkspacesChanged, showGeneral = true }: Se
     updateShowGitStatus,
     updateShowRecentProjects,
     updateTerminalApp,
-    updateViewMode,
     updateWorkspaceApps,
     updateWorkspaces,
-    viewMode,
     workspaceApps,
     workspaces,
   } = useWorkspace();
@@ -52,8 +50,6 @@ export default function Settings({ onWorkspacesChanged, showGeneral = true }: Se
             terminalApp={terminalApp}
             updateDefaultApp={updateDefaultApp}
             updateTerminalApp={updateTerminalApp}
-            updateViewMode={updateViewMode}
-            viewMode={viewMode}
           />
           <RecentProjectsSettings
             recentProjectsCount={recentProjectsCount}

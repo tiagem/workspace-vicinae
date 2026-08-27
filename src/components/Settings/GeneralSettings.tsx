@@ -2,7 +2,7 @@ import { Action, ActionPanel, Color, Icon, List, showToast, Toast, type Applicat
 
 import ImportSettingsForm from "@/components/ImportSettingsForm";
 import SelectEditor from "@/components/SelectEditor";
-import { App, ViewMode } from "@/types";
+import { App } from "@/types";
 import { toApp } from "@/utils/validation";
 
 interface GeneralSettingsProps {
@@ -12,8 +12,6 @@ interface GeneralSettingsProps {
   terminalApp: App | null;
   updateDefaultApp: (app: App | null) => Promise<void>;
   updateTerminalApp: (app: App | null) => Promise<void>;
-  updateViewMode: (mode: ViewMode) => Promise<void>;
-  viewMode: ViewMode;
 }
 
 export default function GeneralSettings({
@@ -23,8 +21,6 @@ export default function GeneralSettings({
   terminalApp,
   updateDefaultApp,
   updateTerminalApp,
-  updateViewMode,
-  viewMode,
 }: GeneralSettingsProps) {
   const handleDefaultAppSelect = async (app: Application) => {
     await updateDefaultApp(toApp(app));
@@ -90,30 +86,6 @@ export default function GeneralSettings({
         icon={Icon.Terminal}
         subtitle="Open your projects in a terminal. If unset, Vicinae uses the system default."
         title="Terminal App"
-      />
-      <List.Item
-        accessories={[
-          {
-            tag: {
-              color: Color.SecondaryText,
-              value: viewMode === "grid" ? "Grid" : "List",
-            },
-          },
-        ]}
-        actions={
-          <ActionPanel>
-            <ActionPanel.Section title="View Mode">
-              <Action
-                icon={viewMode === "grid" ? Icon.AppWindowList : Icon.AppWindowGrid3x3}
-                onAction={() => updateViewMode(viewMode === "grid" ? "list" : "grid")}
-                title={viewMode === "grid" ? "Switch to List View" : "Switch to Grid View"}
-              />
-            </ActionPanel.Section>
-          </ActionPanel>
-        }
-        icon={Icon.AppWindowGrid3x3}
-        subtitle="Default layout when opening the extension"
-        title="View Mode"
       />
       <List.Item
         actions={
