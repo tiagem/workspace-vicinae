@@ -38,11 +38,12 @@ export default function Settings({ onWorkspacesChanged, showGeneral = true }: Se
 
   return (
     <List
+      isShowingDetail
       navigationTitle={showGeneral ? "Workspace Settings" : "Manage Your Workspaces"}
       searchBarPlaceholder={showGeneral ? "Search settings..." : "Search for workspaces..."}
     >
       {showGeneral && (
-        <>
+        <List.Section title="Settings">
           <GeneralSettings
             defaultApp={defaultApp}
             onExportSettings={exportSettings}
@@ -66,7 +67,7 @@ export default function Settings({ onWorkspacesChanged, showGeneral = true }: Se
             updateShowFzfStatus={updateShowFzfStatus}
             updateShowGitStatus={updateShowGitStatus}
           />
-        </>
+        </List.Section>
       )}
 
       <ManagedWorkspacesSection
