@@ -89,7 +89,7 @@ export default function IntegrationSettings({
         actions={
           fzfAvailable ? (
             <ActionPanel>
-              <ActionPanel.Section title="Search">
+              <ActionPanel.Section title="fzf">
                 <Action
                   onAction={() => updateShowFzfStatus(!showFzfStatus)}
                   title={showFzfStatus ? "Disable FZF Search" : "Enable FZF Search"}
@@ -126,9 +126,9 @@ export default function IntegrationSettings({
           />
         }
         icon={Icon.MagnifyingGlass}
-        id="search"
+        id="fzf"
         keywords={["fzf", "fuzzy", "search"]}
-        title="Search"
+        title="fzf"
       />
     </>
   );
